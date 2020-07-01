@@ -8,10 +8,11 @@ import { LibraryQuery } from '../Library/operations.graphql';
 
 const AddItemForm = () => (
   <Mutation mutation={AddItemMutation}>
-    {(addItem, { loading }) => (
+    {(addItem, { loading, data }) => (
       <ProcessItemForm
         buttonText="Add item"
         loading={loading}
+        errors={data && data.addItem.errors}
         // Update library query after Mutation will be finished
         onProcessItem={({ title, description, imageUrl }) =>
           addItem({

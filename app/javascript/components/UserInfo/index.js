@@ -4,6 +4,24 @@ import { Me, SignMeIn } from './operations.graphql';
 import cs from './styles';
 
 
+const UserInfo = () => {
+  return(
+    <div className={cs.panel}>
+      <Query query={Me}>
+        {({ data, loading }) => {
+          if (loading) return '...loading';
+          if (!data) {
+            return <SignInUser />
+          }
+
+          const { fullName } = data.me;
+          return <div className={cs.info}>😈 {fullName}</div>
+        }}
+      </Query>
+    </div>
+  );
+};
+
 const SignInUser = () => {
   const input = useRef(null);
 
@@ -17,7 +35,7 @@ const SignInUser = () => {
         });
       }}
       >
-      {(signIn, { loading: authenticating }) =>
+      {(signIn, { loading: authenticating, error }) =>
         authenticating ? (
           '...'
         ) : (
@@ -42,6 +60,7 @@ const SignInUser = () => {
                      className={cs.button}
                      value="Sign in"
               />
+              {error && <span>{error.message}</span>}
             </form>
           </div>
         )
@@ -49,24 +68,5 @@ const SignInUser = () => {
     </Mutation>
   );
 };
-
-const UserInfo = () => {
-  return(
-    <div className={cs.panel}>
-      <Query query={Me}>
-        {({ data, loading }) => {
-          if (loading) return '...loading';
-          if (!data.me) {
-            return <SignInUser />
-          }
-
-          const { fullName } = data.me;
-          return <div className={cs.info}>😈 {fullName}</div>
-        }}
-      </Query>
-    </div>
-  );
-};
-
 
 export default UserInfo;
