@@ -12,7 +12,9 @@ module Mutations
       check_authentication!
 
       item = Item.find(id)
-      if item.update(attributes.to_h)
+      attributes = attributes.to_h.delete_if { |*, v| v.empty? }
+
+      if item.update(attributes)
         MartianLibrarySchema.subscriptions.trigger('itemUpdated', {}, item)
         { item: item }
       else

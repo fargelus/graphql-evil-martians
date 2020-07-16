@@ -10,7 +10,7 @@ module Mutations
     def resolve(attributes:)
       check_authentication!
 
-      item = Item.new(attributes.merge(user: context[:current_user]))
+      item = Item.new(attributes.to_h.merge(user: context[:current_user]))
 
       if item.save
         MartianLibrarySchema.subscriptions.trigger('itemAdded', {}, item)
