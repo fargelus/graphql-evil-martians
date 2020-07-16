@@ -5,7 +5,7 @@ module Mutations
     argument :attributes, Types::ItemAttributes, required: true
 
     field :item, Types::ItemType, null: true
-    field :errors, [String], null: false
+    field :errors, [String], null: true
 
     def resolve(attributes:)
       check_authentication!

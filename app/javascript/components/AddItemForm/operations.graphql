@@ -19,8 +19,6 @@ mutation AddItemMutation(
         email
       }
     }
-    errors {
-      fullMessages
-    }
+    errors
   }
 }
