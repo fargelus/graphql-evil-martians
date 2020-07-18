@@ -8,8 +8,12 @@ Tutorial consist of three parts:
 - [Updating the data](https://evilmartians.com/chronicles/graphql-on-rails-2-updating-the-data) — adding mutations. :heavy_check_mark:
 - [On the way to perfection](https://evilmartians.com/chronicles/graphql-on-rails-3-on-the-way-to-perfection) — adding subscriptions, and some refactoring. :heavy_check_mark:
 
-### How to run on local machine
+### How to run
 
-You need [nodejs](https://nodejs.org/en/download/) and [yarn](https://yarnpkg.com/lang/en/docs/install) installed.
+You need `docker` and `docker-compose` installed (for MacOS just use [official app](https://docs.docker.com/engine/installation/mac/)).
 
-Run `yarn && bundle && rails s` to make the magic happen.
+```sh
+$ docker-compose up -d
+```
+
+It builds the Docker image, installs Ruby and NodeJS dependencies, creates database, run migrations and seeds.
