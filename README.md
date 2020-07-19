@@ -15,6 +15,7 @@ You need `docker` and `docker-compose` installed (for MacOS just use [official a
 ```sh
 $ docker-compose up -d
 $ docker-compose run app rails db:create db:migrate db:seed
+$ docker-compose run app rails assets:precompile
 ```
 
 It builds the Docker images, installs Ruby and NodeJS dependencies, creates database, run migrations and seeds.
