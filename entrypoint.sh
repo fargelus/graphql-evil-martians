@@ -2,8 +2,6 @@
 
 set -e
 
-cd /martian-library
-rm -f tmp/pids/server.pid
-rails db:create db:migrate db:seed
+rm -f /martian-library/tmp/pids/server.pid
 
 exec "$@"
