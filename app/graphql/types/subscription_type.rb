@@ -6,6 +6,7 @@ module Types
     field :item_updated, Types::ItemType, null: false, description: 'Existing item was updated'
 
     def item_added; end
+
     def item_updated; end
   end
 end

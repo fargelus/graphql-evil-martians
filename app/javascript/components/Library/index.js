@@ -33,9 +33,9 @@ const Library = () => {
               item !== null && (
                 <UpdateItemForm
                   id={item.id}
-                  initialTitle={item.initialTitle}
-                  initialDescription={item.initialDescription}
-                  inititalImageUrl={item.imageUrl}
+                  initialTitle={item.title}
+                  initialDescription={item.description}
+                  initialImageUrl={item.imageUrl}
                   onClose={() => setItem(null)}
                 />
               )

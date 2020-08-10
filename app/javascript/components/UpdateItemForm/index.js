@@ -26,7 +26,7 @@ class UpdateItemForm extends React.Component {
       id,
       initialTitle,
       initialDescription,
-      inititalImageUrl,
+      initialImageUrl,
       onClose
     } = this.props;
     return (
@@ -35,7 +35,7 @@ class UpdateItemForm extends React.Component {
           <Mutation mutation={UpdateItemMutation}>
             {(updateItem, { loading }) => (
               <ProcessItemForm
-                inititalImageUrl={inititalImageUrl}
+                initialImageUrl={initialImageUrl}
                 initialTitle={initialTitle}
                 initialDescription={initialDescription}
                 buttonText="Update Item"
